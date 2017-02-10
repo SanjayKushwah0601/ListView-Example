@@ -17,10 +17,29 @@
         android:layout_height="wrap_content"
         android:hint="Name" />
 
-    <Button
-        android:id="@+id/btnAdd"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Name" />
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Name" />
+
+
+        <Button
+            android:id="@+id/btnShowList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Names" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

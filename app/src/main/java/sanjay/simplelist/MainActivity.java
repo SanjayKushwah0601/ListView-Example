@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private EditText txt;
-    private Button add;
+    private Button add, showList;
     private ArrayList<String> addArray = new ArrayList<>();
 
     @Override
@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         txt = (EditText) findViewById(R.id.name);
         add = (Button) findViewById(R.id.btnAdd);
+        showList = (Button) findViewById(R.id.btnShowList);
+
         add.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -35,13 +37,17 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText((getBaseContext()), "Plant Already Added", Toast.LENGTH_LONG).show();
                 } else {
                     addArray.add(getInput);
-
-                    Intent intent = new Intent(MainActivity.this, ListActivity.class);
-                    intent.putStringArrayListExtra("list", addArray);
-                    startActivity(intent);
-
                     ((TextView) findViewById(R.id.name)).setText(" ");
                 }
+            }
+        });
+
+        showList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                intent.putStringArrayListExtra("list", addArray);
+                startActivity(intent);
             }
         });
     }
